@@ -1,23 +1,14 @@
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+  <h1>Welcome to Dan.ly!</h1>
+  <p>AKA <strong>The Jungle</strong></p>
+  <% if @short_url %>
+    <p>Your short url is <a href="http://<%=@short_url%>"><%=@short_url%></a></p>
+  <% end %>
 
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
+  <form action="/urls" method="post">
+    Enter a URL to be shortened!
+    <br>
+    <input type="text" name="long">
+    <input type="submit" value="Enter!">
+  </form>
 </div>
