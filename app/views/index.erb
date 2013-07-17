@@ -1,8 +1,8 @@
 <div class="container">
   <h1>Welcome to Dan.ly!</h1>
   <p>AKA <strong>The Jungle</strong></p>
-  <% if @short_url %>
-    <p>Your short url is <a href="http://<%=@short_url%>"><%=@short_url%></a></p>
+  <% if @url_message %>
+    <p><%= @url_message  %></p>
   <% end %>
 
   <form action="/urls" method="post">
